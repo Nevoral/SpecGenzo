@@ -23,10 +23,12 @@ This project provides a comprehensive and structured summary of useful rules and
 
 1. **Clone the Repository**: 
 ```sh
-git clone https://github.com/yourusername/web-specification-summarizer.git
+git clone https://github.com/Nevoral/SpecGenzo.git
 ```
 2. **Load Configuration**: Use the Go code provided to load the TOML file and integrate it into your project.
-3. **Generate Code**: Utilize the parsed configurations to generate compliant and optimized code for your web projects.
+3. **Generate Code**: Utilize the specification to generate compliant and optimized code for your project/templating tool.
+
+---
 
 ### Roadmap of Features
 
@@ -41,6 +43,7 @@ To help visualize the development and implementation timeline of this project, w
   - Document special attributes for each tag.
   
 **Deliverable**: Initial TOML file containing basic tag configurations with self-closing tags identified and special attributes listed.
+**Status**: 75% DONE
 
 ---
 
@@ -50,24 +53,24 @@ To help visualize the development and implementation timeline of this project, w
   - Enhance the reliability and usability of the specification.
   
 **Deliverable**: Updated TOML file that includes initial values for specified attributes, improving accuracy.
+**Status**: 5% DONE
 
 ---
 
 **Phase 3: Child Tag Support**
 - **Supported Child Tags**:
   - Identify and document which tags are valid children for each tag.
-  - Ensure that templates and code generators can respect parent-child tag relationships.
   
-**Deliverable**: Comprehensive list of supported child tags for each parent tag, enhancing template performance and validation.
+**Deliverable**: Comprehensive list of supported child tags for each parent tag.
+**Status**: 0% DONE
 
 ---
 
 **Phase 4: Detailed Documentation and Comments**
 - **Comments and Descriptions**:
   - Add detailed and informative comments for each tag and attribute.
-  - Integrate descriptions that can be used by Language Server Protocols (LSP) to enhance editor tooltips and inline help.
   
-**Deliverable**: Well-documented TOML file with rich descriptions and comments, supporting enhanced development environments.
+**Deliverable**: TOML file with rich descriptions and comments of each tags and attributes.
 
 ---
 
@@ -89,7 +92,7 @@ To help visualize the development and implementation timeline of this project, w
 
 ---
 
-This roadmap provides a structured approach to implementing and enhancing the Web Specification Summarizer project. By following these phases, we aim to build a resource that is both comprehensive and invaluable for developers in adopting and implementing modern web standards.
+This roadmap provides a structured approach to implementing and enhancing the SpecGenzo project. By following these phases, we aim to build a resource that is both comprehensive and invaluable for developers in adopting and implementing modern web standards without exhausting research.
 
 ## Contributions
 
