@@ -35,3 +35,7 @@ type AttributeConfig struct {
 	InitialValue     string             // if exist value will be there if not it will be empty string ""
 	SupportedValues  map[string]Comment // if map has 0 len its
 }
+
+func (a *AttributeConfig) IsBoolean() bool {
+	return a.Boolean
+}

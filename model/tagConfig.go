@@ -36,3 +36,10 @@ type TagConfig struct {
 	SpecificAttributes         []*AttributeConfig
 	SupportedChildrenTags      []string
 }
+
+func (t *TagConfig) IsSelfClosing() bool {
+	if t.TagType == SelfClosingType {
+		return true
+	}
+	return false
+}

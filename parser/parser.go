@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/BurntSushi/toml"
-	"github.com/Nevoral/SpecGenzo/internal/model"
+	"github.com/Nevoral/SpecGenzo/model"
 )
 
 // CreateTomlFile creates a TOML file from the provided config struct

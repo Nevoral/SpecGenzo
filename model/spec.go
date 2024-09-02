@@ -26,7 +26,3 @@ type WebSpecification struct {
 	Version string
 	Spec    map[Namespace]*NamespaceConfig
 }
-
-func (w *WebSpecification) GetConfig(tagType Namespace) *NamespaceConfig {
-	return w.Spec[tagType]
-}

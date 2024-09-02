@@ -1,7 +1,7 @@
 // version 0.5
 package spec
 
-import m "github.com/Nevoral/SpecGenzo/internal/model"
+import m "github.com/Nevoral/SpecGenzo/model"
 
 var Spec = m.WebSpecification{
 	Version: "0.5",

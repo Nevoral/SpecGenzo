@@ -60,6 +60,15 @@ func (n *NamespaceConfig) GetTagConfig(name string) (*TagConfig, error) {
 	return n.Tags[tagIndex], nil
 }
 
+func (n *NamespaceConfig) IsTagSelfClosing(name string) bool {
+	for _, tag := range n.Tags {
+		if tag.Name == name && tag.IsSelfClosing() {
+			return true
+		}
+	}
+	return false
+}
+
 func (n *NamespaceConfig) CheckValueValidity(name, value string, category AttributeCategories) bool {
 	atrIndex := slices.IndexFunc(n.AttributesCategories[category], func(e *AttributeConfig) bool {
 		return e.Name == name
