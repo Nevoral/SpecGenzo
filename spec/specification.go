@@ -7,10 +7,10 @@ var Spec = m.WebSpecification{
 	Version: "0.5",
 	Spec: map[m.Namespace]*m.NamespaceConfig{
 		m.HTML: {
-			Tags: []*m.TagConfig{
+			Tags: []*m.NodeConfig{
 				{
 					Name:                       "!DOCTYPE",
-					TagType:                    m.DoctypeType,
+					NodeType:                   m.DoctypeType,
 					Comment:                    `DOCTYPEs are required for legacy reasons. When omitted, browsers tend to use a different rendering mode that is incompatible with some specifications. Including the DOCTYPE in a document ensures that the browser makes a best-effort attempt at following the relevant specifications.`,
 					DocumentationURL:           "https://html.spec.whatwg.org/multipage/syntax.html#the-doctype",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -44,7 +44,7 @@ var Spec = m.WebSpecification{
 				},
 				{
 					Name:                       "!--",
-					TagType:                    m.CommentType,
+					NodeType:                   m.CommentType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -52,8 +52,8 @@ var Spec = m.WebSpecification{
 					SpecificAttributes:         []*m.AttributeConfig{},
 				},
 				{
-					Name:    "a",
-					TagType: m.FullTagType,
+					Name:     "a",
+					NodeType: m.FullTagType,
 					Comment: `HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 
 Content within each <a> should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the <a> element will activate it.`,
@@ -175,8 +175,8 @@ Content within each <a> should indicate the link's destination. If the href attr
 					},
 				},
 				{
-					Name:    "abbr",
-					TagType: m.FullTagType,
+					Name:     "abbr",
+					NodeType: m.FullTagType,
 					Comment: `The <abbr> HTML element represents an abbreviation or acronym.
 
 When including an abbreviation or acronym, provide a full expansion of the term in plain text on first use, along with the <abbr> to mark up the abbreviation. This informs the user what the abbreviation or acronym means.
@@ -194,7 +194,7 @@ The optional title attribute can provide an expansion for the abbreviation or ac
 				},
 				{
 					Name:             "address",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          `The <address> HTML element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.`,
 					DocumentationURL: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -207,8 +207,8 @@ The optional title attribute can provide an expansion for the abbreviation or ac
 					SpecificAttributes:    []*m.AttributeConfig{},
 				},
 				{
-					Name:    "area",
-					TagType: m.SelfClosingType,
+					Name:     "area",
+					NodeType: m.SelfClosingType,
 					Comment: `The <area> HTML element defines an area inside an image map that has predefined clickable areas. An image map allows geometric areas on an image to be associated with hypertext links.
 
 This element is used only within a <map> element.`,
@@ -325,7 +325,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "article",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          `The <article> HTML element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.`,
 					DocumentationURL: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -339,7 +339,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "aside",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          `The <aside> HTML element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.`,
 					DocumentationURL: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -353,7 +353,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "audio",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          `https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio`,
 					DocumentationURL: "The <audio> HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -473,7 +473,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "b",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -487,7 +487,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "base",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -518,7 +518,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "bdi",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -532,7 +532,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "bdo",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -546,7 +546,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "blockquote",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -569,7 +569,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "body",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -664,7 +664,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "br",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -678,7 +678,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "button",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -797,7 +797,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "canvas",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -828,7 +828,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "caption",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -842,7 +842,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "cite",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -856,7 +856,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "code",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -870,7 +870,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "col",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -893,7 +893,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "colgroup",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -916,7 +916,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "data",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -939,7 +939,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "datalist",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -953,7 +953,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "dd",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -967,7 +967,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "del",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -998,7 +998,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "details",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1021,7 +1021,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "dfn",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1035,7 +1035,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "dialog",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1058,7 +1058,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "div",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1072,7 +1072,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "dl",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1086,7 +1086,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "dt",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1100,7 +1100,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "em",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1114,7 +1114,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "embed",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1161,7 +1161,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "fieldset",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1200,7 +1200,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "figcaption",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1214,7 +1214,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "figure",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1228,7 +1228,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "footer",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1242,7 +1242,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "form",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1337,7 +1337,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "h1",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1351,7 +1351,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "h2",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1365,7 +1365,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "h3",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1379,7 +1379,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "h4",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1393,7 +1393,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "h5",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1407,7 +1407,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "h6",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1421,7 +1421,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "head",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1435,7 +1435,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "header",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1449,7 +1449,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "hgroup",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1463,7 +1463,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "hr",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1477,7 +1477,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "html",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1500,7 +1500,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "i",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1514,7 +1514,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "iframe",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1633,7 +1633,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "img",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -1760,7 +1760,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "input",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2087,7 +2087,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "ins",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2118,7 +2118,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "kbd",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2132,7 +2132,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "label",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2155,7 +2155,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "legend",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2169,7 +2169,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "li",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2192,7 +2192,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "link",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2327,7 +2327,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "main",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2341,7 +2341,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "map",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2364,7 +2364,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "mark",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2378,7 +2378,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "menu",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2392,7 +2392,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "meta",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2439,7 +2439,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "meter",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2510,7 +2510,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "nav",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2524,7 +2524,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "noscript",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2538,7 +2538,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "object",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2601,7 +2601,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "ol",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2640,7 +2640,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "optgroup",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2671,7 +2671,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "option",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2718,7 +2718,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "output",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2757,7 +2757,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "p",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2771,7 +2771,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "picture",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2785,7 +2785,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "portal",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2816,7 +2816,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "pre",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2830,7 +2830,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "progress",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2861,7 +2861,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "q",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2884,7 +2884,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "rp",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2898,7 +2898,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "rt",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2912,7 +2912,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "ruby",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2926,7 +2926,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "s",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2940,7 +2940,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "samp",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -2954,7 +2954,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "script",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3049,7 +3049,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "search",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3063,7 +3063,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "section",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3077,7 +3077,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "select",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3148,7 +3148,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "slot",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3171,7 +3171,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "small",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3185,7 +3185,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "source",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3256,7 +3256,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "span",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3270,7 +3270,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "strong",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3284,7 +3284,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "style",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3323,7 +3323,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "sub",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3337,7 +3337,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "summary",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3351,7 +3351,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "sup",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3365,7 +3365,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "svg",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3492,7 +3492,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "table",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3506,7 +3506,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "tbody",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3520,7 +3520,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "td",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3559,7 +3559,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "template",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3573,7 +3573,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "textarea",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3700,7 +3700,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "tfoot",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3714,7 +3714,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "th",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3769,7 +3769,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "thead",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3783,7 +3783,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "time",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3806,7 +3806,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "title",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3820,7 +3820,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "tr",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3834,7 +3834,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "track",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3889,7 +3889,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "u",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3903,7 +3903,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "ul",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3917,7 +3917,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "var",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -3931,7 +3931,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "video",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -4058,7 +4058,7 @@ This element is used only within a <map> element.`,
 				},
 				{
 					Name:             "wbr",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5115,10 +5115,10 @@ This element is used only within a <map> element.`,
 			},
 		},
 		m.SVG: {
-			Tags: []*m.TagConfig{
+			Tags: []*m.NodeConfig{
 				{
 					Name:             "a",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          `Indicate links (also known as hyperlinks or Web links). An "a’ element forms a link if it has a "href’ or "xlink:href’ attribute; without these attributes the "a’ element is an inactive placeholder for a link.`,
 					DocumentationURL: "https://svgwg.org/svg2-draft/linking.html#AElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5209,7 +5209,7 @@ _blank
 				},
 				{
 					Name:             "animate",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/specs/animations/#AnimateElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5398,7 +5398,7 @@ _blank
 				},
 				{
 					Name:             "animateMotion",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/specs/animations/#AnimateMotionElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5585,7 +5585,7 @@ _blank
 				},
 				{
 					Name:             "animateTransform",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/specs/animations/#AnimateTransformElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5774,7 +5774,7 @@ _blank
 				},
 				{
 					Name:             "circle",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/svg2-draft/shapes.html#CircleElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5822,7 +5822,7 @@ _blank
 				},
 				{
 					Name:             "clipPath",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "https://drafts.fxtf.org/css-masking-1/#ClipPathElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5852,7 +5852,7 @@ _blank
 				},
 				{
 					Name:             "defs",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/svg2-draft/struct.html#DefsElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5865,7 +5865,7 @@ _blank
 				},
 				{
 					Name:             "desc",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/svg2-draft/struct.html#DescElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5878,7 +5878,7 @@ _blank
 				},
 				{
 					Name:             "discard",
-					TagType:          m.FullTagType,
+					NodeType:         m.FullTagType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/specs/animations/#DiscardElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5891,7 +5891,7 @@ _blank
 				},
 				{
 					Name:             "ellipse",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://svgwg.org/svg2-draft/shapes.html#EllipseElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5947,7 +5947,7 @@ _blank
 				},
 				{
 					Name:             "feBlend",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://drafts.fxtf.org/filter-effects/#feBlendElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -5985,7 +5985,7 @@ _blank
 				},
 				{
 					Name:             "feColorMatrix",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://drafts.fxtf.org/filter-effects/#feColorMatrixElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -6023,7 +6023,7 @@ _blank
 				},
 				{
 					Name:             "feComponentTransfer",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://drafts.fxtf.org/filter-effects/#feComponentTransferElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -6045,7 +6045,7 @@ _blank
 				},
 				{
 					Name:             "feComposite",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://drafts.fxtf.org/filter-effects/#feCompositeElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -6115,7 +6115,7 @@ _blank
 				},
 				{
 					Name:             "feConvolveMatrix",
-					TagType:          m.SelfClosingType,
+					NodeType:         m.SelfClosingType,
 					Comment:          ``,
 					DocumentationURL: "https://drafts.fxtf.org/filter-effects/#feConvolveMatrixElement",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{
@@ -6209,7 +6209,7 @@ _blank
 				},
 				{
 					Name:                       "feDiffuseLighting",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6251,7 +6251,7 @@ _blank
 				},
 				{
 					Name:                       "feDisplacementMap",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6301,7 +6301,7 @@ _blank
 				},
 				{
 					Name:                       "feDistantLight",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6327,7 +6327,7 @@ _blank
 				},
 				{
 					Name:                       "feDropShadow",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6361,7 +6361,7 @@ _blank
 				},
 				{
 					Name:                       "feFlood",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6387,7 +6387,7 @@ _blank
 				},
 				{
 					Name:                       "feFuncA",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6453,7 +6453,7 @@ _blank
 				},
 				{
 					Name:                       "feFuncB",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6519,7 +6519,7 @@ _blank
 				},
 				{
 					Name:                       "feFuncG",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6585,7 +6585,7 @@ _blank
 				},
 				{
 					Name:                       "feFuncR",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6651,7 +6651,7 @@ _blank
 				},
 				{
 					Name:                       "feGaussianBlur",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6685,7 +6685,7 @@ _blank
 				},
 				{
 					Name:                       "feImage",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6711,7 +6711,7 @@ _blank
 				},
 				{
 					Name:                       "feMerge",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6720,7 +6720,7 @@ _blank
 				},
 				{
 					Name:                       "feMergeNode",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6738,7 +6738,7 @@ _blank
 				},
 				{
 					Name:                       "feMorphology",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6772,7 +6772,7 @@ _blank
 				},
 				{
 					Name:                       "feOffset",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6806,7 +6806,7 @@ _blank
 				},
 				{
 					Name:                       "fePointLight",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6840,7 +6840,7 @@ _blank
 				},
 				{
 					Name:                       "feSpecularLighting",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6890,7 +6890,7 @@ _blank
 				},
 				{
 					Name:                       "feSpotLight",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6964,7 +6964,7 @@ _blank
 				},
 				{
 					Name:                       "feTile",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -6982,7 +6982,7 @@ _blank
 				},
 				{
 					Name:                       "feTurbulence",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7032,7 +7032,7 @@ _blank
 				},
 				{
 					Name:                       "filter",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7098,7 +7098,7 @@ _blank
 				},
 				{
 					Name:                       "foreignObject",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7140,7 +7140,7 @@ _blank
 				},
 				{
 					Name:                       "g",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7182,7 +7182,7 @@ _blank
 				},
 				{
 					Name:                       "hatch",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7248,7 +7248,7 @@ _blank
 				},
 				{
 					Name:                       "hatchpath",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7290,7 +7290,7 @@ _blank
 				},
 				{
 					Name:                       "image",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7348,7 +7348,7 @@ _blank
 				},
 				{
 					Name:                       "line",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7398,7 +7398,7 @@ _blank
 				},
 				{
 					Name:                       "linearGradient",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7464,7 +7464,7 @@ _blank
 				},
 				{
 					Name:                       "marker",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7538,7 +7538,7 @@ _blank
 				},
 				{
 					Name:                       "mask",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7596,7 +7596,7 @@ _blank
 				},
 				{
 					Name:                       "metadata",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7605,7 +7605,7 @@ _blank
 				},
 				{
 					Name:                       "mpath",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7623,7 +7623,7 @@ _blank
 				},
 				{
 					Name:                       "path",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7673,7 +7673,7 @@ _blank
 				},
 				{
 					Name:                       "pattern",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7755,7 +7755,7 @@ _blank
 				},
 				{
 					Name:                       "polygon",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7781,7 +7781,7 @@ _blank
 				},
 				{
 					Name:                       "polyline",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7807,7 +7807,7 @@ _blank
 				},
 				{
 					Name:                       "radialGradient",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7889,7 +7889,7 @@ _blank
 				},
 				{
 					Name:                       "rect",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7955,7 +7955,7 @@ _blank
 				},
 				{
 					Name:                       "script",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -7981,7 +7981,7 @@ _blank
 				},
 				{
 					Name:                       "set",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8071,7 +8071,7 @@ _blank
 				},
 				{
 					Name:                       "stop",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8105,7 +8105,7 @@ _blank
 				},
 				{
 					Name:                       "style",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8139,7 +8139,7 @@ _blank
 				},
 				{
 					Name:                       "svg",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8237,7 +8237,7 @@ _blank
 				},
 				{
 					Name:                       "switch",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8246,7 +8246,7 @@ _blank
 				},
 				{
 					Name:                       "symbol",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8288,7 +8288,7 @@ _blank
 				},
 				{
 					Name:                       "text",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8354,7 +8354,7 @@ _blank
 				},
 				{
 					Name:                       "textPath",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8396,7 +8396,7 @@ _blank
 				},
 				{
 					Name:                       "title",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8405,7 +8405,7 @@ _blank
 				},
 				{
 					Name:                       "tspan",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8471,7 +8471,7 @@ _blank
 				},
 				{
 					Name:                       "use",
-					TagType:                    m.SelfClosingType,
+					NodeType:                   m.SelfClosingType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -8521,7 +8521,7 @@ _blank
 				},
 				{
 					Name:                       "view",
-					TagType:                    m.FullTagType,
+					NodeType:                   m.FullTagType,
 					Comment:                    ``,
 					DocumentationURL:           "",
 					AttributesCategorySupports: map[m.AttributeCategories][]string{},
@@ -9870,7 +9870,7 @@ _blank
 			},
 		},
 		m.MATH: {
-			Tags:                 []*m.TagConfig{},
+			Tags:                 []*m.NodeConfig{},
 			AttributesCategories: map[m.AttributeCategories][]*m.AttributeConfig{},
 		},
 	},

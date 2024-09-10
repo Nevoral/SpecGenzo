@@ -16,6 +16,7 @@ func (c Comment) BuildComment() string {
 	for index, val := range parts {
 		if index == 0 {
 			result += fmt.Sprintf("%s", val)
+			continue
 		}
 		result += fmt.Sprintf("\n%s", val)
 	}

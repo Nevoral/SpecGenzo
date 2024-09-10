@@ -30,6 +30,7 @@ func (a AttributeCategories) String() string {
 type AttributeConfig struct {
 	Name             string
 	Boolean          bool
+	Tags             []Tag
 	Comment          Comment
 	DocumentationURL string
 	InitialValue     string             // if exist value will be there if not it will be empty string ""

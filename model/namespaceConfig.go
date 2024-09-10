@@ -31,7 +31,7 @@ func (n Namespace) String() string {
 }
 
 type NamespaceConfig struct {
-	Tags                 []*TagConfig
+	Tags                 []*NodeConfig
 	AttributesCategories map[AttributeCategories][]*AttributeConfig
 }
 
@@ -49,8 +49,8 @@ func (n *NamespaceConfig) GetAttributeBoolean(name string, category AttributeCat
 	return n.AttributesCategories[category][atrIndex].Boolean
 }
 
-func (n *NamespaceConfig) GetTagConfig(name string) (*TagConfig, error) {
-	tagIndex := slices.IndexFunc(n.Tags, func(e *TagConfig) bool {
+func (n *NamespaceConfig) GetTagConfig(name string) (*NodeConfig, error) {
+	tagIndex := slices.IndexFunc(n.Tags, func(e *NodeConfig) bool {
 		return strings.ToLower(e.Name) == name
 	})
 	if tagIndex < 0 {
