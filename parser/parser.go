@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -8,8 +9,8 @@ import (
 	"github.com/Nevoral/SpecGenzo/model"
 )
 
-// CreateTomlFile creates a TOML file from the provided config struct
-func CreateTomlSpec(filename string, w *model.WebSpecification) error {
+// CreateJsonFile creates a JSON file from the provided config struct
+func CreateJsonSpec(filename string, w *model.WebSpecification) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return fmt.Errorf("could not create file: %v", err)
@@ -21,16 +22,21 @@ func CreateTomlSpec(filename string, w *model.WebSpecification) error {
 		}
 	}(file)
 
-	encoder := toml.NewEncoder(file)
-	if err = encoder.Encode(w); err != nil {
-		return fmt.Errorf("could not encode config to TOML: %v", err)
+	spec, err := json.MarshalIndent(w, "", "  ")
+	if err != nil {
+		return fmt.Errorf("Error marshaling user to JSON:", err)
+	}
+
+	_, err = file.Write(spec)
+	if err != nil {
+		return fmt.Errorf("Error writing JSON data to file:", err)
 	}
 
 	return nil
 }
 
-// LoadFromTomlFile loads the TOML data from the specified file into the WebConfig struct.
-func LoadFromTomlFile(filename string) (*model.WebSpecification, error) {
+// LoadFromJsonFile loads the JSON data from the specified file into the WebConfig struct.
+func LoadFromJsonFile(filename string) (*model.WebSpecification, error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, fmt.Errorf("could not open file: %v", err)

@@ -6,13 +6,13 @@ import (
 	"strings"
 )
 
-type Namespace int
+type Namespace string
 
 const (
-	HTML Namespace = iota
-	SVG
-	MATH
-	XHTML
+	HTML  Namespace = "HTML"
+	SVG             = "SVG"
+	MATH            = "MATH"
+	XHTML           = "XHTML"
 )
 
 func (n Namespace) String() string {
@@ -31,7 +31,7 @@ func (n Namespace) String() string {
 }
 
 type NamespaceConfig struct {
-	Tags                 []*NodeConfig
+	Nodes                []*NodeConfig
 	AttributesCategories map[AttributeCategories][]*AttributeConfig
 }
 
@@ -50,23 +50,54 @@ func (n *NamespaceConfig) GetAttributeBoolean(name string, category AttributeCat
 }
 
 func (n *NamespaceConfig) GetTagConfig(name string) (*NodeConfig, error) {
-	tagIndex := slices.IndexFunc(n.Tags, func(e *NodeConfig) bool {
+	tagIndex := slices.IndexFunc(n.Nodes, func(e *NodeConfig) bool {
 		return strings.ToLower(e.Name) == name
 	})
 	if tagIndex < 0 {
 		msg := fmt.Errorf("Error: in specification isn't any tag called %s.", name)
 		return nil, msg
 	}
-	return n.Tags[tagIndex], nil
+	return n.Nodes[tagIndex], nil
 }
 
 func (n *NamespaceConfig) IsTagSelfClosing(name string) bool {
-	for _, tag := range n.Tags {
+	for _, tag := range n.Nodes {
 		if tag.Name == name && tag.IsSelfClosing() {
 			return true
 		}
 	}
 	return false
+}
+
+func (n *NamespaceConfig) SortAllSlicesAscending() {
+	slices.SortFunc(n.Nodes, func(a, b *NodeConfig) int {
+		if a.Name > b.Name {
+			return 1
+		} else if a.Name == b.Name {
+			return 0
+		}
+		return -1
+	})
+	for _, value := range n.Nodes {
+		slices.SortFunc(value.SpecificAttributes, func(a, b *AttributeConfig) int {
+			if a.Name > b.Name {
+				return 1
+			} else if a.Name == b.Name {
+				return 0
+			}
+			return -1
+		})
+	}
+	for _, value := range n.AttributesCategories {
+		slices.SortFunc(value, func(a, b *AttributeConfig) int {
+			if a.Name > b.Name {
+				return 1
+			} else if a.Name == b.Name {
+				return 0
+			}
+			return -1
+		})
+	}
 }
 
 func (n *NamespaceConfig) CheckValueValidity(name, value string, category AttributeCategories) bool {
